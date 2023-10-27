@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Nosifer, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+h1{
+    width: 100%;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(70deg, #ff0000, #2e2e2e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.functions{
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+form{
+    width: 100%;
+    display: flex;
+    /* border: 2px solid red; */
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+#filterForm{
+    justify-content: space-between;
+
+}
+#searchForm{
+    justify-content: center;
+}
+select{
+    width: 150px;
+    padding: 8px;
+    background-color: rgb(255, 205, 140);
+    border: none;
+    border-radius: 10px;
+    appearance: none;
+    text-align: center;
+    outline: none;
+}
+option{
+
+}
+#pokemon-container{
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+}
+.card{
+    border: 2px solid rgb(0, 255, 76);
+    width: 220px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(49, 49, 49, 0.5);
+}
+.pokeId{
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: beige;
+    color: rgb(82, 80, 80);
+}
+.pokeName{
+    font-size: 1.3rem;
+    color: rgb(59, 59, 59);
+    margin-bottom: 0.8rem;
+}
+.pokeType{
+    background-color: rgb(56, 26, 26);
+    color: aliceblue;
+    font-size: 0.9rem;
+    padding: 3px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+}
+@media screen and (max-width: 1024px){
+    h1{
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 768px){
+    .card{
+        width: 100%;
+        max-width: 350px;
+    }
+    h1{
+        font-size: 2.8rem;
+    }
+}
+@media screen and (max-width: 475px){
+    h1{
+        font-size: 1.8rem;
+    }
+}
+@media screen and (max-width: 350px){
+    h1{
+        font-size: 1.4rem;
+    }
+}
