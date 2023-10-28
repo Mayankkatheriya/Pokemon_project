@@ -16,6 +16,19 @@
     <link rel="icon" href="./png-clipart-pokeball-pokeball.png" />
   </head>
   <body>
+    <button id="toggle">
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 256 256"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#000000"
+          d="M235.54 150.21a104.84 104.84 0 0 1-37 52.91A104 104 0 0 1 32 120a103.09 103.09 0 0 1 20.88-62.52a104.84 104.84 0 0 1 52.91-37a8 8 0 0 1 10 10a88.08 88.08 0 0 0 109.8 109.8a8 8 0 0 1 10 10Z"
+        />
+      </svg>
+    </button>
     <h1>GeeksterMon</h1>
     <div class="functions">
       <form action="" id="searchForm">
@@ -31,18 +44,15 @@
           <select name="" id="filterOption">
             <option value="" selected disabled>--Type--</option>
           </select>
-          <button value="Filter By Type" id="filterButton">
-            Filter By Type
-          </button>
+          <button id="filterButton">Filter By Type</button>
+          <button id="sortButton">Sort By Height ⬆</button>
         </div>
         <button onclick="window.location.reload()">Reset</button>
       </form>
     </div>
     <div id="pokemon-container"></div>
     <dialog id="myDialog">
-      <div class="modal">
-        
-      </div>
+      <div class="modal"></div>
     </dialog>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

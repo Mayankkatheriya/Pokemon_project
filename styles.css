@@ -13,6 +13,20 @@ body {
   /* padding: 1rem; */
   background-image: linear-gradient(to right, #fecea6 0%, #d4d4d4 100%);
 }
+.dark {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+  background-blend-mode: multiply, multiply;
+}
 h1 {
   width: 100%;
   font-size: 3rem;
@@ -312,6 +326,20 @@ li {
   font-size: 14px;
   color: #7c7b7b;
 }
+#toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
 @media screen and (max-width: 1024px) {
   h1 {
     font-size: 3rem;
@@ -329,6 +357,9 @@ li {
 @media screen and (max-width: 475px) {
   h1 {
     font-size: 1.8rem;
+  }
+  #toggle {
+    display: none;
   }
 }
 @media screen and (max-width: 350px) {
