@@ -94,6 +94,7 @@ select:focus{
 option{
     font-size: 1rem;
     text-transform: capitalize;
+    font-weight: 500;
 }
 option:checked{
     background-color: rgb(241, 198, 103);
@@ -107,11 +108,10 @@ button {
   box-shadow: #505050 4px 4px 0 0,#1b1919 4px 4px 0 1px;
   box-sizing: border-box;
   color: #050505;
-  font-weight: 700;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 20px;
   margin: 0 5px 10px 0;
   overflow: visible;

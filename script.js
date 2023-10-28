@@ -23,7 +23,7 @@ let selectTypes = document.querySelector("select");
 let searchBar = document.querySelector("#searchBar")
 let filterBtn = document.querySelector("#filterButton")
 
-//TODO Append cards and options
+//TODO Append cards
 function appendCards(finalArr) {
     pokemonContainer.innerHTML = ""
     selectTypes.innerHTML = `
@@ -50,6 +50,23 @@ function appendCards(finalArr) {
               </div>
               `;
         pokemonContainer.appendChild(div);
+        // const option = document.createElement("option");
+        // if(!(pokemonTypes.includes(`${poke.type}`))){
+        //   pokemonTypes.push(`${poke.type}`)
+        //   option.value = `${poke.type}`;
+        //   option.innerHTML = `${poke.type}`
+        //   selectTypes.appendChild(option)
+        // }
+      });
+}
+
+//TODO Add Options for filter
+function appendOptions(finalArr) {
+    selectTypes.innerHTML = `
+    <option value="" selected disabled>--Type--</option>
+    `
+    pokemonTypes = []
+    finalArr.forEach((poke) => {
         const option = document.createElement("option");
         if(!(pokemonTypes.includes(`${poke.type}`))){
           pokemonTypes.push(`${poke.type}`)
@@ -66,25 +83,32 @@ searchBar.addEventListener("keyup", (e)=>{
     let newArr = updatedPokeArr.filter((ele)=>{
         return ele.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1 ? true : false ;
     })
-    console.log(newArr);
+    // console.log(newArr);
     appendCards(newArr)
+    appendOptions(newArr)
 })
 
 //TODO Filter Button Event
 filterBtn.addEventListener("click", (e)=>{
     e.preventDefault()
-    let filterValue = selectTypes.value
-    // console.log(filterValue);
+    let filterValue = selectTypes.value;
+    console.log(filterValue);
+    if(filterValue == ""){
+      console.log("hii");
+      alert('Please Select a Type')
+      return
+    }
     let filteredArray = updatedPokeArr.filter((ele)=>{
-        return ele.type === filterValue ? true : false ;
+      return ele.type === filterValue ? true : false ;
     })
     appendCards(filteredArray)
+    appendOptions(updatedPokeArr)
 })
 
 //TODO fetch items from API
 let fetchPokemons = () => {
   let pokeArr = [];
-  for (let i = 1; i <= 151; i++) {
+  for (let i = 1; i <= 201; i++) {
     pokeArr.push(
       fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then((res) => res.json())
     );
@@ -105,6 +129,7 @@ let fetchPokemons = () => {
     });
     // console.log(updatedPokeArr);
     appendCards(updatedPokeArr);
+    appendOptions(updatedPokeArr)
   });
 };
 fetchPokemons();
