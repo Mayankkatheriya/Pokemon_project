@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon Search</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./png-clipart-pokeball-pokeball.png">
   </head>
   <body>
     <h1>GeeksterMon</h1>
     <div class="functions">
+      <form action="" id="searchForm">
+        <input
+          type="text"
+          name=""
+          id="searchBar"
+          placeholder="search by pokemon name"
+        />
+      </form>
       <form action="" id="filterForm">
         <div class="filterContainer">
           <select name="" id="">
             <option value="" selected disabled>--Type--</option>
           </select>
-          <input type="submit" value="Filter By Type" />
+          <button value="Filter By Type" id="filterButton">Filter By Type</button>
         </div>
         <button onclick="window.location.reload()">Reset</button>
       </form>
-      <form action="" id="searchForm">
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="Enter the pokemaon name"
-        />
-      </form>
     </div>
-    <div id="pokemon-container">
-    </div>
+    <div id="pokemon-container"></div>
     <script src="./script.js"></script>
   </body>
 </html>

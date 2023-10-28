@@ -11,6 +11,7 @@ body{
     align-items: center;
     flex-direction: column;
     padding: 1rem;
+    background-image: linear-gradient(to right, #fecea6 0%, #d4d4d4 100%);
 }
 h1{
     width: 100%;
@@ -23,10 +24,12 @@ h1{
 }
 .functions{
     width: 100%;
-    max-width: 1000px;
+    max-width: 900px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 form{
     width: 100%;
@@ -34,27 +37,116 @@ form{
     /* border: 2px solid red; */
     align-items: center;
     margin-bottom: 1rem;
-    padding: 1rem;
+    flex-wrap: wrap;
 }
 #filterForm{
-    justify-content: space-between;
-
+    justify-content: space-around;
+    gap: 1rem;
 }
 #searchForm{
     justify-content: center;
 }
-select{
+#searchForm input{
     width: 150px;
-    padding: 8px;
-    background-color: rgb(255, 205, 140);
-    border: none;
+    padding: 10px;
+    width: 100%;
+    border: 1px dotted gray;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.7);
+    transition: 0.3s;
+    background-color: antiquewhite;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+#searchForm input:focus{
+    box-shadow: none;
+}
+#searchForm input::placeholder{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.filterContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+select{
+    width: 200px;
+    padding: 14px;
+    background-color: rgb(253, 231, 202);
     border-radius: 10px;
     appearance: none;
     text-align: center;
     outline: none;
+    border: 1px dotted gray;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.7);
+    font-size: 1rem;
+    text-transform: capitalize;
+  font-weight: 700;
+
+}
+select:focus{
+    border-radius: 10px 10px 0 0 ;
 }
 option{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+option:checked{
+    background-color: rgb(241, 198, 103);
+}
+button {
+  appearance: button;
+  background-color: antiquewhite;
+  background-image: none;
+  border: 1px solid #fad1d1;
+  border-radius: 10px;
+  box-shadow: #505050 4px 4px 0 0,#1b1919 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #050505;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 10px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
 
+button:focus {
+  text-decoration: none;
+}
+
+button:hover {
+  text-decoration: none;
+}
+
+button:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+button:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 12px 50px;
+  }
 }
 #pokemon-container{
     width: 100%;
@@ -121,17 +213,23 @@ p{
 }
 .pokeBackId{
     position: absolute;
-    top: 0;
+    top: -30px;
     border-radius: 10px 10px 0 0;
 }
 .pokeBackImg{
     margin-top: -2rem;
-    width: 120px;
-    height: 80px;
+    width: 200px;
+    height: 120px;
 }
 .pokeAbility{
     text-align: center;
+    font-size: 0.7rem;
+    color: #1b1919;
+}
+.pokeAbility span{
     font-size: 0.9rem;
+    color: #333;
+
 }
 @media screen and (max-width: 1024px){
     h1{
