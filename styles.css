@@ -290,6 +290,7 @@ ul {
   align-items: center;
   list-style: decimal;
   list-style-position: inside;
+  margin-bottom: 1rem;
 }
 li {
   font-size: 14px;
@@ -299,6 +300,17 @@ li {
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
+}
+.specs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.specs h4 {
+  font-size: 14px;
+  color: #7c7b7b;
 }
 @media screen and (max-width: 1024px) {
   h1 {

@@ -31,7 +31,17 @@ function closeDialog() {
 }
 
 //TODO Dialog box open
-function openDetails(name, img, move1, move2, move3, move4) {
+function openDetails(
+  name,
+  img,
+  move1,
+  move2,
+  move3,
+  move4,
+  height,
+  weight,
+  order
+) {
   modal.innerHTML = `
   <svg onclick = "closeDialog()" id = "closeBtn" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path fill="#7d7a78" d="M3 16.74L7.76 12L3 7.26L7.26 3L12 7.76L16.74 3L21 7.26L16.24 12L21 16.74L16.74 21L12 16.24L7.26 21L3 16.74m9-3.33l4.74 4.75l1.42-1.42L13.41 12l4.75-4.74l-1.42-1.42L12 10.59L7.26 5.84L5.84 7.26L10.59 12l-4.75 4.74l1.42 1.42L12 13.41Z"/>
@@ -49,6 +59,11 @@ function openDetails(name, img, move1, move2, move3, move4) {
       <li>${move4}</li>
     </div>
   </ul>
+  <div class="specs">
+    <h4>height: ${height}</h4>
+    <h4>order: ${order}</h4>
+    <h4>weight: ${weight}</h4>
+  </div>
   `;
   dialog.show();
 }
@@ -69,7 +84,7 @@ function appendCards(finalArr) {
     let poketype = poke.type;
     let pokecolor = divColors[poketype] || "#A0CF59";
     div.innerHTML = `
-              <div class="box-content" onclick = "openDetails('${poke.name}', '${poke.largeImg}', '${move1}', '${move2}', '${move3}', '${move4}')">
+              <div class="box-content" onclick = "openDetails('${poke.name}', '${poke.largeImg}', '${move1}', '${move2}', '${move3}', '${move4}', '${poke.height}', '${poke.weight}', '${poke.order}')">
                   <div class="box-front" style='background-color: ${pokecolor}'>
                       <p class="pokeId">#${poke.id}</p>
                       <img src="${poke.image}" alt="${poke.name}" class="pokeImg" />
@@ -122,7 +137,7 @@ searchBar.addEventListener("keyup", (e) => {
 filterBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let filterValue = selectTypes.value;
-  console.log(filterValue);
+  // console.log(filterValue);
   if (filterValue == "") {
     toastr.options.closeMethod = "fadeOut";
     toastr.options.closeDuration = 100;
@@ -161,9 +176,12 @@ let fetchPokemons = () => {
         ability: pokemon.abilities
           .map((ability) => ability.ability.name)
           .join(", "),
+        height: pokemon.height,
+        weight: pokemon.weight,
+        order: pokemon.order,
       };
     });
-    console.log(updatedPokeArr);
+    // console.log(updatedPokeArr);
     appendCards(updatedPokeArr);
     appendOptions(updatedPokeArr);
   });
