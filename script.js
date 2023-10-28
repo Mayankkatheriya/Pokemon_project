@@ -1,4 +1,4 @@
-let colors = {
+let divColors = {
   grass: "#A0CF59",
   fire: "#FD842F",
   water: "#4E98C7",
@@ -20,22 +20,56 @@ let pokemonTypes = [];
 let updatedPokeArr = [];
 let pokemonContainer = document.querySelector("#pokemon-container");
 let selectTypes = document.querySelector("select");
-let searchBar = document.querySelector("#searchBar")
-let filterBtn = document.querySelector("#filterButton")
+let searchBar = document.querySelector("#searchBar");
+let filterBtn = document.querySelector("#filterButton");
+let modal = document.querySelector(".modal");
+let dialog = document.querySelector("#myDialog");
+
+//TODO dialog box close
+function closeDialog() {
+  dialog.close();
+}
+
+//TODO Dialog box open
+function openDetails(name, img, move1, move2, move3, move4) {
+  modal.innerHTML = `
+  <svg onclick = "closeDialog()" id = "closeBtn" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#7d7a78" d="M3 16.74L7.76 12L3 7.26L7.26 3L12 7.76L16.74 3L21 7.26L16.24 12L21 16.74L16.74 21L12 16.24L7.26 21L3 16.74m9-3.33l4.74 4.75l1.42-1.42L13.41 12l4.75-4.74l-1.42-1.42L12 10.59L7.26 5.84L5.84 7.26L10.59 12l-4.75 4.74l1.42 1.42L12 13.41Z"/>
+  </svg>
+  <h1 class="model_Name">${name}</h1>
+  <img src="${img}" alt="" class="model_Image" />
+  <h3 class = modal_Moves>Moves</h3>
+  <ul>
+    <div class = "list">
+      <li>${move1}</li>
+      <li>${move2}</li>
+    </div>
+    <div class = "list">
+      <li>${move3}</li>
+      <li>${move4}</li>
+    </div>
+  </ul>
+  `;
+  dialog.show();
+}
 
 //TODO Append cards
 function appendCards(finalArr) {
-    pokemonContainer.innerHTML = ""
-    selectTypes.innerHTML = `
+  pokemonContainer.innerHTML = "";
+  selectTypes.innerHTML = `
     <option value="" selected disabled>--Type--</option>
-    `
-    finalArr.forEach((poke) => {
-        const div = document.createElement("div");
-        div.classList.add(`box`);
-        let poketype = poke.type;
-        let pokecolor = colors[poketype] || "#A0CF59";
-        div.innerHTML = `
-              <div class="box-content">
+    `;
+  finalArr.forEach((poke) => {
+    const div = document.createElement("div");
+    let move1 = poke.moves[0],
+      move2 = poke.moves[1],
+      move3 = poke.moves[2],
+      move4 = poke.moves[3];
+    div.classList.add(`box`);
+    let poketype = poke.type;
+    let pokecolor = divColors[poketype] || "#A0CF59";
+    div.innerHTML = `
+              <div class="box-content" onclick = "openDetails('${poke.name}', '${poke.largeImg}', '${move1}', '${move2}', '${move3}', '${move4}')">
                   <div class="box-front" style='background-color: ${pokecolor}'>
                       <p class="pokeId">#${poke.id}</p>
                       <img src="${poke.image}" alt="${poke.name}" class="pokeImg" />
@@ -49,61 +83,61 @@ function appendCards(finalArr) {
                   </div>
               </div>
               `;
-        pokemonContainer.appendChild(div);
-        // const option = document.createElement("option");
-        // if(!(pokemonTypes.includes(`${poke.type}`))){
-        //   pokemonTypes.push(`${poke.type}`)
-        //   option.value = `${poke.type}`;
-        //   option.innerHTML = `${poke.type}`
-        //   selectTypes.appendChild(option)
-        // }
-      });
+    pokemonContainer.appendChild(div);
+  });
 }
 
 //TODO Add Options for filter
 function appendOptions(finalArr) {
-    selectTypes.innerHTML = `
+  selectTypes.innerHTML = `
     <option value="" selected disabled>--Type--</option>
-    `
-    pokemonTypes = []
-    finalArr.forEach((poke) => {
-        const option = document.createElement("option");
-        if(!(pokemonTypes.includes(`${poke.type}`))){
-          pokemonTypes.push(`${poke.type}`)
-          option.value = `${poke.type}`;
-          option.innerHTML = `${poke.type}`
-          selectTypes.appendChild(option)
-        }
-      });
+    `;
+  pokemonTypes = [];
+  finalArr.forEach((poke) => {
+    const option = document.createElement("option");
+    if (!pokemonTypes.includes(`${poke.type}`)) {
+      pokemonTypes.push(`${poke.type}`);
+      option.value = `${poke.type}`;
+      option.innerHTML = `${poke.type}`;
+      selectTypes.appendChild(option);
+    }
+  });
 }
 
 //TODO search Event
-searchBar.addEventListener("keyup", (e)=>{
-    e.preventDefault();
-    let newArr = updatedPokeArr.filter((ele)=>{
-        return ele.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1 ? true : false ;
-    })
-    // console.log(newArr);
-    appendCards(newArr)
-    appendOptions(newArr)
-})
+searchBar.addEventListener("keyup", (e) => {
+  e.preventDefault();
+  let newArr = updatedPokeArr.filter((ele) => {
+    return ele.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+      ? true
+      : false;
+  });
+  // console.log(newArr);
+  appendCards(newArr);
+  appendOptions(newArr);
+});
 
 //TODO Filter Button Event
-filterBtn.addEventListener("click", (e)=>{
-    e.preventDefault()
-    let filterValue = selectTypes.value;
-    console.log(filterValue);
-    if(filterValue == ""){
-      console.log("hii");
-      alert('Please Select a Type')
-      return
-    }
-    let filteredArray = updatedPokeArr.filter((ele)=>{
-      return ele.type === filterValue ? true : false ;
-    })
-    appendCards(filteredArray)
-    appendOptions(updatedPokeArr)
-})
+//! Adding toastr for error
+filterBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let filterValue = selectTypes.value;
+  console.log(filterValue);
+  if (filterValue == "") {
+    toastr.options.closeMethod = "fadeOut";
+    toastr.options.closeDuration = 100;
+    toastr.options.closeEasing = "swing";
+    toastr.options.closeButton = true;
+    toastr.options.closeHtml = '<button><i class="icon-off"></i></button>';
+    toastr.error("Select a Type");
+    return;
+  }
+  let filteredArray = updatedPokeArr.filter((ele) => {
+    return ele.type === filterValue ? true : false;
+  });
+  appendCards(filteredArray);
+  appendOptions(updatedPokeArr);
+});
 
 //TODO fetch items from API
 let fetchPokemons = () => {
@@ -121,15 +155,17 @@ let fetchPokemons = () => {
         image: pokemon.sprites.front_default,
         name: pokemon.name,
         type: pokemon.types[0].type.name,
-        backImage: pokemon.sprites.back_default,
+        backImage: pokemon.sprites.back_shiny,
+        largeImg: pokemon.sprites.other.home.front_shiny,
+        moves: pokemon.moves.map((moves) => moves.move.name),
         ability: pokemon.abilities
           .map((ability) => ability.ability.name)
           .join(", "),
       };
     });
-    // console.log(updatedPokeArr);
+    console.log(updatedPokeArr);
     appendCards(updatedPokeArr);
-    appendOptions(updatedPokeArr)
+    appendOptions(updatedPokeArr);
   });
 };
 fetchPokemons();

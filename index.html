@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon Search</title>
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="./png-clipart-pokeball-pokeball.png">
+    <link rel="icon" href="./png-clipart-pokeball-pokeball.png" />
   </head>
   <body>
     <h1>GeeksterMon</h1>
@@ -20,15 +28,22 @@
       </form>
       <form action="" id="filterForm">
         <div class="filterContainer">
-          <select name="" id="">
+          <select name="" id="filterOption">
             <option value="" selected disabled>--Type--</option>
           </select>
-          <button value="Filter By Type" id="filterButton">Filter By Type</button>
+          <button value="Filter By Type" id="filterButton">
+            Filter By Type
+          </button>
         </div>
         <button onclick="window.location.reload()">Reset</button>
       </form>
     </div>
     <div id="pokemon-container"></div>
+    <dialog id="myDialog">
+      <div class="modal"></div>
+    </dialog>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
