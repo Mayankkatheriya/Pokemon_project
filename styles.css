@@ -27,6 +27,11 @@ body {
       #989898;
   background-blend-mode: multiply, multiply;
 }
+.dark h1{
+  background: -webkit-linear-gradient(70deg, #83f8f8, #e6e6e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 h1 {
   width: 100%;
   font-size: 3rem;
@@ -73,12 +78,19 @@ form {
   font-size: 1.2rem;
   font-weight: 700;
 }
+.dark #searchForm input{
+  background-color: #daf8fc;
+  color: rgb(80, 79, 79);
+}
 #searchForm input:focus {
   box-shadow: none;
 }
 #searchForm input::placeholder {
   font-size: 1rem;
   text-transform: capitalize;
+}
+.dark #searchForm input::placeholder{
+  color: rgb(124, 124, 124);
 }
 .filterContainer {
   display: flex;
@@ -90,7 +102,7 @@ form {
 #filterOption {
   width: 200px;
   padding: 14px;
-  background-color: rgb(253, 231, 202);
+  background-color: antiquewhite;
   border-radius: 10px;
   appearance: none;
   text-align: center;
@@ -100,6 +112,10 @@ form {
   font-size: 1rem;
   text-transform: capitalize;
   font-weight: 700;
+}
+.dark #filterOption{
+  background-color: #daf8fc;
+
 }
 #filterOption:focus {
   border-radius: 10px 10px 0 0;
@@ -154,6 +170,10 @@ button:active {
 button:not([disabled]):active {
   box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
   transform: translate(2px, 2px);
+}
+.dark button{
+  background-color: #daf8fc;
+
 }
 
 @media (min-width: 768px) {
@@ -270,6 +290,9 @@ p {
   visibility: visible;
   opacity: 1;
 }
+#myDialog, ::backdrop {
+  overscroll-behavior: contain;
+}
 .modal {
   background-color: rgb(255, 223, 182);
   width: 100%;
@@ -282,6 +305,9 @@ p {
   border-radius: 10px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4);
   position: relative;
+}
+.dark .modal{
+  background-color: #bdbdbd;
 }
 .model_Name {
   font-size: 1.8rem;
@@ -296,6 +322,9 @@ p {
   color: #7c5d5d;
   margin-bottom: 1rem;
 }
+.dark .modal_Moves{
+  color: #56738f;
+}
 ul {
   width: 100%;
   display: flex;
@@ -309,6 +338,9 @@ ul {
 li {
   font-size: 14px;
   color: #d66910;
+}
+.dark li{
+  color: #466eff;
 }
 #closeBtn {
   position: absolute;
@@ -325,6 +357,9 @@ li {
 .specs h4 {
   font-size: 14px;
   color: #7c7b7b;
+}
+.dark .specs h4{
+  color: #362222;
 }
 #toggle {
   position: absolute;
