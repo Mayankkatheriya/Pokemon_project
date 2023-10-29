@@ -156,8 +156,8 @@ filterBtn.addEventListener("click", (e) => {
   appendOptions(updatedPokeArr);
 });
 
-let sort = "asc";
 //TODO Sort Button Event
+let sort = "asc";
 sortBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let sortedArr = [];

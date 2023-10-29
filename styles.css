@@ -12,6 +12,7 @@ body {
   flex-direction: column;
   /* padding: 1rem; */
   background-image: linear-gradient(to right, #fecea6 0%, #d4d4d4 100%);
+  transition: all 0.8s;
 }
 .dark {
   background: linear-gradient(
@@ -77,6 +78,7 @@ form {
   background-color: antiquewhite;
   font-size: 1.2rem;
   font-weight: 700;
+  transition: all o.8s;
 }
 .dark #searchForm input{
   background-color: #daf8fc;
@@ -88,6 +90,7 @@ form {
 #searchForm input::placeholder {
   font-size: 1rem;
   text-transform: capitalize;
+  transition: all o.8s;
 }
 .dark #searchForm input::placeholder{
   color: rgb(124, 124, 124);
@@ -112,6 +115,7 @@ form {
   font-size: 1rem;
   text-transform: capitalize;
   font-weight: 700;
+  transition: all o.8s;
 }
 .dark #filterOption{
   background-color: #daf8fc;
@@ -152,6 +156,7 @@ button {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  transition: all o.8s;
 }
 
 button:focus {
@@ -305,6 +310,7 @@ p {
   border-radius: 10px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4);
   position: relative;
+  transition: all o.8s;
 }
 .dark .modal{
   background-color: #bdbdbd;
@@ -321,6 +327,7 @@ p {
   text-decoration: solid underline;
   color: #7c5d5d;
   margin-bottom: 1rem;
+  transition: all o.8s;
 }
 .dark .modal_Moves{
   color: #56738f;
@@ -338,6 +345,7 @@ ul {
 li {
   font-size: 14px;
   color: #d66910;
+  transition: all o.8s;
 }
 .dark li{
   color: #466eff;
@@ -374,6 +382,7 @@ li {
   margin: 0;
   padding: 0;
   box-shadow: none;
+  z-index: 1000;
 }
 @media screen and (max-width: 1024px) {
   h1 {
@@ -392,9 +401,6 @@ li {
 @media screen and (max-width: 475px) {
   h1 {
     font-size: 1.8rem;
-  }
-  #toggle {
-    /* display: none; */
   }
 }
 @media screen and (max-width: 350px) {
