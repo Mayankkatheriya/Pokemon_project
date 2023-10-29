@@ -27,11 +27,14 @@ body {
       )
       #989898;
   background-blend-mode: multiply, multiply;
+  transition: all 0.8s;
 }
 .dark h1{
   background: -webkit-linear-gradient(70deg, #83f8f8, #e6e6e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: all 0.8s;
+
 }
 h1 {
   width: 100%;
@@ -83,6 +86,8 @@ form {
 .dark #searchForm input{
   background-color: #daf8fc;
   color: rgb(80, 79, 79);
+  transition: all 0.8s;
+
 }
 #searchForm input:focus {
   box-shadow: none;
@@ -93,6 +98,7 @@ form {
   transition: all o.8s;
 }
 .dark #searchForm input::placeholder{
+  transition: all 0.8s;
   color: rgb(124, 124, 124);
 }
 .filterContainer {
@@ -118,6 +124,7 @@ form {
   transition: all o.8s;
 }
 .dark #filterOption{
+  transition: all 0.8s;
   background-color: #daf8fc;
 
 }
@@ -177,6 +184,7 @@ button:not([disabled]):active {
   transform: translate(2px, 2px);
 }
 .dark button{
+  transition: all 0.8s;
   background-color: #daf8fc;
 
 }
@@ -313,6 +321,7 @@ p {
   transition: all o.8s;
 }
 .dark .modal{
+  transition: all 0.8s;
   background-color: #bdbdbd;
 }
 .model_Name {
@@ -330,6 +339,7 @@ p {
   transition: all o.8s;
 }
 .dark .modal_Moves{
+  transition: all 0.8s;
   color: #56738f;
 }
 ul {
@@ -348,6 +358,7 @@ li {
   transition: all o.8s;
 }
 .dark li{
+  transition: all 0.8s;
   color: #466eff;
 }
 #closeBtn {
@@ -367,6 +378,7 @@ li {
   color: #7c7b7b;
 }
 .dark .specs h4{
+  transition: all 0.8s;
   color: #362222;
 }
 #toggle {
