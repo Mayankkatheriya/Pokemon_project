@@ -359,7 +359,7 @@ li {
     font-size: 1.8rem;
   }
   #toggle {
-    display: none;
+    /* display: none; */
   }
 }
 @media screen and (max-width: 350px) {
