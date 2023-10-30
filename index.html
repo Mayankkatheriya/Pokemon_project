@@ -12,11 +12,15 @@
       href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="./png-clipart-pokeball-pokeball.png" />
   </head>
   <body>
-    <button id="toggle">
+    <button id="toggle" class = "animate__animated animate__zoomInDown">
       <svg
         width="24"
         height="24"
@@ -29,7 +33,7 @@
         />
       </svg>
     </button>
-    <h1>GeeksterMon</h1>
+    <h1 class = "animate__animated animate__backInDown">GeeksterMon</h1>
     <div class="functions">
       <form action="" id="searchForm">
         <input
@@ -37,17 +41,18 @@
           name=""
           id="searchBar"
           placeholder="search by pokemon name"
+          class = "animate__animated animate__backInLeft"
         />
       </form>
       <form action="" id="filterForm">
         <div class="filterContainer">
-          <select name="" id="filterOption">
+          <select name="" id="filterOption" class = "animate__animated animate__fadeInBottomLeft">
             <option value="" selected disabled>--Type--</option>
           </select>
-          <button id="filterButton">Filter By Type</button>
-          <button id="sortButton">Sort By Height ⬆</button>
+          <button id="filterButton" class = "animate__animated animate__fadeInBottomLeft">Filter By Type</button>
+          <button id="sortButton" class = "animate__animated animate__fadeInBottomRight">Sort By Height ⬆</button>
         </div>
-        <button onclick="window.location.reload()">Reset</button>
+        <button onclick="window.location.reload()" class = "animate__animated animate__fadeInBottomRight">Reset</button>
       </form>
     </div>
     <div id="pokemon-container"></div>

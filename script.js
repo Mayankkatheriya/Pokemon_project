@@ -83,6 +83,7 @@ function appendCards(finalArr) {
       move3 = poke.moves[2],
       move4 = poke.moves[3];
     div.classList.add(`box`);
+    div.setAttribute("data-id", "flip-up");
     let poketype = poke.type;
     let pokecolor = divColors[poketype] || "#A0CF59";
     div.innerHTML = `
