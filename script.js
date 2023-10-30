@@ -14,6 +14,7 @@ let divColors = {
   ghost: "#826AA8",
   dragon: "#DCAA2B",
   ice: "#5AC7E8",
+  dark: "#6997f3",
 };
 
 let pokemonTypes = [];
@@ -26,6 +27,17 @@ let sortBtn = document.querySelector("#sortButton");
 let modal = document.querySelector(".modal");
 let dialog = document.querySelector("#myDialog");
 let toggle = document.querySelector("#toggle");
+let topBtn = document.querySelector("#top");
+
+//Todo---------back to top----------
+window.addEventListener("scroll", () => {
+  topBtn.style.transition = "all 1s";
+  if (window.innerHeight + window.scrollY == window.innerHeight) {
+    topBtn.style.display = "none";
+  } else {
+    topBtn.style.display = "block";
+  }
+});
 
 //TODO dialog box close
 function closeDialog() {
@@ -165,11 +177,11 @@ sortBtn.addEventListener("click", (e) => {
   if (sort == "asc") {
     sortedArr = updatedPokeArr.sort((a, b) => a.height - b.height);
     sort = "desc";
-    sortBtn.innerText = "Sort By Height ⬇";
+    sortBtn.innerHTML = `Sort By Height <i class="fa-solid fa-angles-down"></i>`;
   } else {
     sortedArr = updatedPokeArr.sort((a, b) => b.height - a.height);
     sort = "asc";
-    sortBtn.innerText = "Sort By Height ⬆";
+    sortBtn.innerHTML = `Sort By Height <i class="fa-solid fa-angles-up"></i>`;
   }
   appendCards(sortedArr);
   appendOptions(sortedArr);
@@ -210,7 +222,7 @@ let fetchPokemons = () => {
 fetchPokemons();
 
 //TODO Dark theme
-let flag = false;
+flag = false;
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   if (flag == false) {

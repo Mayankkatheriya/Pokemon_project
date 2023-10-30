@@ -20,7 +20,7 @@
     <link rel="icon" href="./png-clipart-pokeball-pokeball.png" />
   </head>
   <body>
-    <button id="toggle" class = "animate__animated animate__zoomInDown">
+    <button id="toggle" class="animate__animated animate__zoomInDown">
       <svg
         width="24"
         height="24"
@@ -33,7 +33,18 @@
         />
       </svg>
     </button>
-    <h1 class = "animate__animated animate__backInDown">GeeksterMon</h1>
+    <h4 id="tag">
+      Created by
+      <span
+        ><a
+          href="https://www.linkedin.com/in/mayank-gupta-752328173/"
+          target="blank"
+          >Mayank Gupta</a
+        ></span
+      >
+      ❤
+    </h4>
+    <h1 class="animate__animated animate__backInDown">GeeksterMon</h1>
     <div class="functions">
       <form action="" id="searchForm">
         <input
@@ -41,24 +52,50 @@
           name=""
           id="searchBar"
           placeholder="search by pokemon name"
-          class = "animate__animated animate__backInLeft"
+          class="animate__animated animate__backInLeft"
         />
       </form>
       <form action="" id="filterForm">
         <div class="filterContainer">
-          <select name="" id="filterOption" class = "animate__animated animate__fadeInBottomLeft">
+          <select
+            name=""
+            id="filterOption"
+            class="animate__animated animate__fadeInBottomLeft"
+          >
             <option value="" selected disabled>--Type--</option>
           </select>
-          <button id="filterButton" class = "animate__animated animate__fadeInBottomLeft">Filter By Type</button>
-          <button id="sortButton" class = "animate__animated animate__fadeInBottomRight">Sort By Height ⬆</button>
+          <button
+            id="filterButton"
+            class="animate__animated animate__fadeInBottomLeft"
+          >
+            Filter By Type
+          </button>
+          <button
+            id="sortButton"
+            class="animate__animated animate__fadeInBottomRight"
+          >
+            Sort By Height <i class="fa-solid fa-angles-up"></i>
+          </button>
         </div>
-        <button onclick="window.location.reload()" class = "animate__animated animate__fadeInBottomRight">Reset</button>
+        <button
+          onclick="window.location.reload()"
+          class="animate__animated animate__fadeInBottomRight"
+        >
+          Reset
+        </button>
       </form>
     </div>
     <div id="pokemon-container"></div>
     <dialog id="myDialog">
       <div class="modal"></div>
     </dialog>
+    <a href="#" id="top"
+      ><i class="go-top fa-solid fa-chevron-up" style="color: #000000"></i
+    ></a>
+    <script
+      src="https://kit.fontawesome.com/08f45ad4dd.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="./script.js"></script>
