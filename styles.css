@@ -30,6 +30,7 @@ body {
   color: white;
   display: none;
   transition: all 1s;
+  z-index: 1000;
 }
 .go-top {
   position: absolute;
