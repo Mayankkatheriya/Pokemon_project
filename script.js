@@ -119,6 +119,9 @@ function appendCards(finalArr) {
 
 //TODO Add Options for filter
 function appendOptions(finalArr) {
+  finalArr.sort((a, b) => {
+    return a.type < b.type ? -1 : 1;
+  });
   selectTypes.innerHTML = `
     <option value="" selected disabled>--Type--</option>
     `;
@@ -241,3 +244,14 @@ toggle.addEventListener("click", () => {
     flag = false;
   }
 });
+function resetBtn(e) {
+  e.preventDefault();
+  // let url = window.location.href;
+  // if(url[url.length-1]=="#"){
+  //   url = url.slice(0,-1);
+  //   console.log(url);
+  // }
+  // window.location.href = url
+  // console.log(window.location);
+  window.location.reload();
+}
