@@ -41,8 +41,17 @@ window.addEventListener("scroll", () => {
 
 //TODO dialog box close
 function closeDialog() {
+  document.body.style.overflow = "scroll"
   dialog.close();
 }
+
+//TODO DialogBox Close
+dialog.addEventListener('click', function(e){
+  e.preventDefault();
+  if(e.target.id == "myDialog"){
+    closeDialog();
+  }
+})
 
 //TODO Dialog box open
 function openDetails(
@@ -79,6 +88,7 @@ function openDetails(
     <h4>weight: ${weight}</h4>
   </div>
   `;
+  document.body.style.overflow = "hidden"
   dialog.show();
 }
 
@@ -244,6 +254,8 @@ toggle.addEventListener("click", () => {
     flag = false;
   }
 });
+
+//TODO Reset Button
 function resetBtn(e) {
   e.preventDefault();
   // let url = window.location.href;
