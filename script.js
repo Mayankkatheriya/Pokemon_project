@@ -41,7 +41,7 @@ window.addEventListener("scroll", () => {
 
 //TODO dialog box close
 function closeDialog() {
-  document.body.style.overflow = "scroll"
+  document.body.style.overflowY = "scroll"
   dialog.close();
 }
 
